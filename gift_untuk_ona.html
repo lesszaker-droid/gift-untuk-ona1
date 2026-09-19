@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Ona ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0; min-height:100vh; overflow:hidden;
+  font-family:Georgia,serif;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3,#c471ed);
+  display:flex;align-items:center;justify-content:center;color:#fff;
+}
+.card{
+  width:min(90%,430px); padding:32px 24px; text-align:center;
+  background:rgba(255,255,255,.16); backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.35); border-radius:28px;
+  box-shadow:0 20px 60px rgba(90,0,60,.25);
+}
+h1{font-size:38px;margin:8px 0 12px}
+h2{font-size:27px;margin:8px 0 18px}
+p{font-size:18px;line-height:1.7}
+.heart{font-size:58px;animation:pulse 1.4s infinite}
+button{
+  border:0;border-radius:999px;padding:15px 28px;margin-top:15px;
+  background:#fff;color:#e84d7a;font-size:16px;font-weight:bold;
+  box-shadow:0 8px 25px rgba(0,0,0,.18);cursor:pointer;
+}
+#letter{display:none}
+.small{font-size:14px;opacity:.9;margin-top:22px}
+.float{
+  position:fixed;bottom:-40px;animation:up linear forwards;
+  pointer-events:none;opacity:.8
+}
+@keyframes pulse{50%{transform:scale(1.15)}}
+@keyframes up{to{transform:translateY(-115vh) rotate(20deg);opacity:0}}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="heart">❤️</div>
+  <div id="start">
+    <h1>Untuk Ona</h1>
+    <p>Ada sesuatu yang ingin Rifqi sampaikan...</p>
+    <button onclick="openLetter()">💌 Buka Hadiah</button>
+  </div>
+
+  <div id="letter">
+    <h2>Sayanggkuhhh, Ona ❤️</h2>
+    <p>
+      Maaf yaa harus LDR, sayangg 🥺<br><br>
+      Walaupun jarak kita jauh, semoga kamu selalu tahu
+      kalau hati Rifqi tetap dekat sama kamu.
+      Jarak cuma memisahkan tempat, bukan rasa. ❤️
+    </p>
+    <p><b>Rifqi sayang banget sama Ona.</b></p>
+    <p>Semoga kita selalu kuat sampai nanti nggak perlu LDR lagi. 🥰</p>
+    <div class="small">Dari Rifqi, untuk Ona ❤️</div>
+  </div>
+</div>
+
+<script>
+function openLetter(){
+  document.getElementById("start").style.display="none";
+  document.getElementById("letter").style.display="block";
+  for(let i=0;i<28;i++) setTimeout(makeHeart,i*100);
+}
+function makeHeart(){
+  const h=document.createElement("div");
+  h.className="float"; h.textContent=Math.random()>.35?"❤️":"💗";
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(16+Math.random()*25)+"px";
+  h.style.animationDuration=(4+Math.random()*4)+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),8000);
+}
+</script>
+</body>
+</html>
